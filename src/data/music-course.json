@@ -1,0 +1,46 @@
+
+{
+    "courses":[
+        {
+            "id":1,
+            "title":"Guitar Fundamentals",
+            "slug":"guitar-Fundamentals",
+            "description":"learn the basic of playing guitar with our comprehensive beginner's course .",
+            "price": 99.98,
+            "instructor":"Saorj Shrestha",
+            "isFeatured":true,
+            "image":"/courses/guitar2.jpg"
+        },
+        {
+            "id":2,
+            "title":"Piano for Beginner",
+            "slug":"guitar-Fundamentals",
+            "description":"learn the basic of playing piano with our comprehensive beginner's course .",
+            "price": 99.98,
+            "instructor":"Bodhan Dhakal",
+            "isFeatured":true,
+            "image":"/courses/piano.jpg"
+
+        },
+        {
+            "id":3,
+            "title":"Drum Fundamentals",
+            "slug":"guitar-Fundamentals",
+            "description":"learn the basic of playing drum with our comprehensive beginner's course .",
+            "price": 99.98,
+            "instructor":"Sachin Shrestha",
+            "isFeatured":true,
+            "image":"/courses/drummer.jpg"
+        },
+        {
+            "id":4,
+            "title":"Vocial Fundementals",
+            "slug":"guitar-Fundamentals",
+            "description":"learn the basic of  vocial  with our comprehensive beginner's course .",
+            "price": 99.98,
+            "instructor":"Arika Shahi",
+            "isFeatured":true,
+            "image":"/courses/vocial.jpg"
+        }
+    ]
+}
