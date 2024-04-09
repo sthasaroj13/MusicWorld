@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import React, {
@@ -13,6 +11,24 @@ import React, {
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
+
+const handleAnimations = (
+  ref: React.MutableRefObject<HTMLDivElement | null>,
+  isMouseEntered: boolean,
+  translateX: number | string = 0,
+  translateY: number | string = 0,
+  translateZ: number | string = 0,
+  rotateX: number | string = 0,
+  rotateY: number | string = 0,
+  rotateZ: number | string = 0
+) => {
+  if (!ref.current) return;
+  if (isMouseEntered) {
+    ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
+  } else {
+    ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+  }
+};
 
 export const CardContainer = ({
   children,
@@ -45,6 +61,7 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -122,17 +139,17 @@ export const CardItem = ({
   const [isMouseEntered] = useMouseEnter();
 
   useEffect(() => {
-    handleAnimations();
+    handleAnimations(
+      ref,
+      isMouseEntered,
+      translateX,
+      translateY,
+      translateZ,
+      rotateX,
+      rotateY,
+      rotateZ
+    );
   }, [isMouseEntered]);
-
-  const handleAnimations = () => {
-    if (!ref.current) return;
-    if (isMouseEntered) {
-      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
-    } else {
-      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
-    }
-  };
 
   return (
     <Tag

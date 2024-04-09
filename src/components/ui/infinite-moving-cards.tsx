@@ -1,7 +1,5 @@
-"use client";
-
 import { cn } from "@/utils/cn";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -20,14 +18,10 @@ export const InfiniteMovingCards = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
+  const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -40,9 +34,15 @@ export const InfiniteMovingCards = ({
 
       getDirection();
       getSpeed();
-      setStart(true);
     }
-  }
+  };
+
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
+
+  const [start, setStart] = useState(false);
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -58,6 +58,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
@@ -69,6 +70,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   return (
     <div
       ref={containerRef}
