@@ -4,23 +4,7 @@ import { Button } from "@/components/ui/moving-border";
 import Link from "next/link";
 import React from "react";
 
-interface ContactForm {
-  email: string;
-  message: string;
-}
 
-function page(): JSX.Element {
-  const [formData, setFormData] = React.useState<ContactForm>({
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   return (
     <>
@@ -43,12 +27,12 @@ function page(): JSX.Element {
 
           <textarea
             name="message"
-            id=""
-            
-            className="w-full bg-gray-800 text-white px-4 py-2 rounded-lg "
+           
+           
+            className="w-full bg-gray-800 text-white px-4 py-2 rounded-lg mb-4"
             placeholder="Write your message here"
-            value={formData.message}
-            onChange={handleChange}
+          
+            
           />
           <br />
 
