@@ -9,7 +9,7 @@ function page() {
         <div className="max-w-xl w-full p-6 border rounded-lg">
           <h1 className="text-2xl text-white font-bold text-center mb-4">Contact Us</h1>
           <p className="text-base text-slate-500 mb-4 max-w-[40rem] text-center">
-            We&apos;re here to help with any questions about our courses, programs, or events. Reach out and let us know how we can assist you in your musical journey.
+            We are here to help with any questions about our courses, programs, or events. Reach out and let us know how we can assist you in your musical journey.
           </p>
 
           <input type="email" className="w-full bg-gray-800 text-white px-4 py-2 rounded-lg mb-4" placeholder="Your email" /> <br />
@@ -17,7 +17,7 @@ function page() {
           <Link href={'#'}>
             <Button
               className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800"
-              borderRadius="1.75rem">
+              >
               Submit
             </Button>
           </Link>
