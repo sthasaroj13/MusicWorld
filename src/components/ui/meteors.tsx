@@ -2,14 +2,14 @@ import { cn } from "@/utils/cn";
 import clsx from "clsx";
 import React from "react";
 
-export const Meteors = ({
-  number,
-  className,
-}: {
-  number?: number;
+interface MeteorsProps {
+  number?: number; // Make the number prop optional
   className?: string;
-}) => {
-  const meteors = new Array(number || 20).fill(true);
+}
+
+export const Meteors: React.FC<MeteorsProps> = ({ number = 20, className }) => { // Set a default value for number
+  const meteors = new Array(number).fill(true); // Ensure number is always a number
+
   return (
     <>
       {meteors.map((el, idx) => (
